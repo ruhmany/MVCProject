@@ -1,0 +1,51 @@
+﻿@using Booking.com.ViewModels;
+@using DomainLayer.Enums;
+@model UpdateClubViewModel
+
+
+<form method="post" asp-action="Update" enctype="multipart/form-data">
+    <input type="hidden" value="" asp-for="ID"/>
+    <div class="form-group">
+        <lable asp-for="Title">Title</lable>
+        <input type="text" class="form-control" asp-for="Title" placeholder="Title" />
+        <span asp-validation-for="Title" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <lable asp-for="Description">Description</lable>
+        <input type="text" class="form-control" asp-for="Description" placeholder="Description" />
+        <span asp-validation-for="Description" class="text-danger"></span>
+
+    </div>
+
+    <div class="form-group">
+        <lable asp-for="Image">Image</lable>
+        <input type="file" class="form-control" asp-for="Image" placeholder="Image" />
+        <span asp-validation-for="Image" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <lable asp-for="Address.Street">Street</lable>
+        <input type="text" class="form-control" asp-for="Address.Street" placeholder="Street" />
+        <span asp-validation-for="Address.Street" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <lable asp-for="Address.City">City</lable>
+        <input type="text" class="form-control" asp-for="Address.City" placeholder="City" />
+        <span asp-validation-for="Address.City" class="text-danger"></span>
+    </div>
+
+    <div class="form-group mb-2">
+        <lable asp-for="ClubCategory">Club Category</lable>
+        <select asp-for="ClubCategory" class="form-select">
+            <option>select</option>
+            <option>@ClubCategory.City</option>
+            <option>@ClubCategory.RoadRunner</option>
+            <option>@ClubCategory.Endurance</option>
+            <option>@ClubCategory.Trail</option>
+            <option>@ClubCategory.Womens</option>
+        </select>
+        <span asp-validation-for="ClubCategory" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
